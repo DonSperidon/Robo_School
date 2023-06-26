@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/* === Подключаем шрифты === */
+@font-face {
+  font-family: "Jost";
+  src: url(../fonts/Jost-Regular.woff) format("woff"), url(../fonts/Jost-Regular.woff2) format("woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Jost";
+  src: url(../fonts/Jost-SemiBold.woff) format("woff"), url(../fonts/Jost-SemiBold.woff2) format("woff2");
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Jost";
+  src: url(../fonts/Jost-Bold.woff) format("woff"), url(../fonts/Jost-Bold.woff2) format("woff2");
+  font-style: normal;
+  font-weight: 700;
+}
