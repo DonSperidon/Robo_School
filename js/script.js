@@ -25,7 +25,7 @@ if (iconMenu) {
         iconPhone.classList.toggle('hide');
     });
 }
-        // Закрывает меню бургер при клике на ссылку
+    // Закрывает меню бургер при клике на ссылку
 if (menuLink.length > 0) {
     menuLink.forEach(menuLink => {
         menuLink.addEventListener("click", onMenuLinkClick);
@@ -63,7 +63,7 @@ anchors.forEach(anc => {
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1.3,
     spaceBetween: 20,
-      // Navigation arrows
+    // Navigation arrows
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -93,6 +93,23 @@ const promptBody = document.querySelector('.info-prompt');
 promptBtn.addEventListener('click', function() {
     promptBody.classList.toggle('show');
 });
+
+promptBtn.addEventListener('mouseenter', function(e){ // Вешаем на него обработчик mouseenter - при наведение мыши на элемент
+    promptBody.classList.add('show');
+});
+
+promptBtn.addEventListener('mouseleave', function(e){ // И ещё обработчик mouseleave - при "уходе" курсора с элемента
+    promptBody.classList.remove('show');
+});
+
+// Close the prompt if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.info__item-prompt')) {
+      if (promptBody.classList.contains('show')) {
+        promptBody.classList.remove('show');
+      }
+  }
+}
 
 //popup
 const popupLinks = document.querySelectorAll('.popup-link');
@@ -230,3 +247,59 @@ select.onchange = () => {
     tabsBtns.forEach(item => item.classList.remove('activetab'));
     tabsBtns[select.options.selectedIndex].classList.add('activetab');
 }
+
+
+
+//validator 
+
+// const validate = new window.JustValidate('#promotionForm');
+const validation = new window.JustValidate('#promotion_form', {
+    errorLabelStyle: {
+        color: 'red'
+    }
+});
+
+let selector = document.querySelector('#promotion_phone');
+let im = new Inputmask("+7(999)999-99-99");
+im.mask(selector);
+
+validation.addField('#promotion_name', [
+    {
+    rule: 'required',
+    value: !0,
+    errorMessage: 'Введите имя'
+    },
+    {
+        rule: 'minLength',
+        value: 2,
+        errorMessage: 'Минимум 2 символа'
+        }
+])
+.addField('#promotion_phone', [
+    {
+        validator: (value) => {
+            const phone = selector.inputmask.unmaskedvalue();
+            return Boolean(Number(phone) && phone.length > 0)
+        },
+        errorMessage: "Введите телефон"
+    },
+    {
+        validator: (value) => {
+            const phone = selector.inputmask.unmaskedvalue();
+            return Boolean(Number(phone) && phone.length === 10)
+        },
+        errorMessage: "Введите телефон полностью"
+    }
+])
+.addField('#promotion_email', [
+    {
+        rule: 'required',
+        value: !0,
+        errorMessage: 'Заполните Email'
+    },
+    {
+        rule: 'email',
+        value: !0,
+        errorMessage: 'Введите корректный Email'
+    }
+]);

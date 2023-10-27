@@ -292,9 +292,9 @@ option:nth-child(3) {
     color: #FFFFFF;
     padding: 10px 25px;
     font-size: 16px;
-    text-align: center;
   }
   .popup__select-option {
+    text-align: center;
     background-color: #fff;
     color: #000000;
   }
@@ -469,11 +469,12 @@ body.lock {
 }
 
 .welcome {
-  min-height: 100vh;
+  padding-top: 190px;
+  min-height: 900px;
   background-color: #141024;
 }
 .welcome__inner {
-  min-height: 100vh;
+  min-height: 900px;
   display: flex;
   align-items: center;
   width: 100%;
@@ -512,9 +513,8 @@ body.lock {
 }
 .welcome__image {
   position: absolute;
-  max-width: 783px;
-  width: auto;
-  height: 80%;
+  max-width: 100%;
+  height: auto;
   bottom: 0;
   right: 0;
   transform: translateX(25%);
@@ -595,9 +595,15 @@ body.lock {
   font-size: 18px;
   margin-left: 10px;
   position: relative;
+  transition: all 0.2s ease;
+}
+.info__item-prompt:hover {
+  background-color: rgba(20, 16, 36, 0.12);
 }
 .info-prompt {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
   position: absolute;
   top: -70px;
   left: -10px;
@@ -612,7 +618,8 @@ body.lock {
   cursor: initial;
 }
 .info-prompt.show {
-  display: block;
+  visibility: visible;
+  opacity: 1;
 }
 
 .service__inner {
@@ -684,25 +691,25 @@ body.lock {
 
 .promotion {
   background-color: #D52027;
-  max-width: 1920px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 0;
   overflow: hidden;
+  position: relative;
 }
-.promotion::before {
-  content: url(../img/decor-procent.svg);
+.promotion::after {
+  content: "";
   position: absolute;
-  margin: 0 auto;
-  bottom: -33px;
+  bottom: -21px;
   left: 0;
   right: 0;
-  z-index: -1;
+  background-image: url(../img/decor-procent.svg);
+  height: 121px;
+  background-position: bottom center;
 }
 .promotion__inner {
   padding: 87px 0;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 1;
 }
 .promotion__content {
   width: 400px;
@@ -724,14 +731,14 @@ body.lock {
 }
 .promotion__form {
   max-width: 500px;
+  width: 100%;
 }
 .promotion__form-input {
-  margin-bottom: 10px;
-  width: 100%;
   padding: 19px 20px;
   background-color: #F6F6F6;
   border-radius: 5px;
   outline: none;
+  width: 100%;
   font-size: 18px;
   line-height: 1.45;
   color: rgba(40, 41, 68, 0.7);
@@ -761,6 +768,23 @@ body.lock {
 }
 .promotion__form-button:active {
   background-color: #100d1b;
+}
+.promotion__input-box {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.just-validate-error-label {
+  position: absolute;
+  top: 0px;
+  left: 20px;
+}
+
+.just-validate-success-field {
+  background-image: url(../img/validate-success.svg);
+  background-position: right calc(0.375em + 0.1875rem) center;
+  background-repeat: no-repeat;
+  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
 .footer {
@@ -861,6 +885,9 @@ body.lock {
 .swiper-button-prev {
   top: inherit !important;
   bottom: 0 !important;
+  width: 40px !important;
+  height: 40px !important;
+  -webkit-tap-highlight-color: transparent; /* уюирает обводку при таче на дисплей*/
 }
 
 .swiper-button-prev, .swiper-rtl .swiper-button-next {
@@ -885,10 +912,6 @@ body.lock {
 @media (max-width: 1250px) {
   .welcome__content {
     flex-basis: 410px;
-  }
-  .welcome__image {
-    width: auto;
-    height: 80%;
   }
   .welcome__title {
     margin-bottom: 15px;
@@ -920,8 +943,21 @@ body.lock {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
   }
+  .welcome__image {
+    width: calc(115% - 410px);
+  }
 }
 @media (max-width: 992px) {
+  .welcome {
+    padding-top: 0px;
+  }
+  .welcome,
+  .welcome__inner {
+    min-height: 600px;
+  }
+  .welcome__image {
+    display: none;
+  }
   .header__phone-text,
   .header__logo,
   .footer__content-logo,
@@ -1069,6 +1105,8 @@ body.lock {
   .welcome__image {
     transform: inherit;
     position: relative;
+    display: block;
+    width: 100%;
   }
   .welcome__title {
     margin-bottom: 10px;
@@ -1172,13 +1210,6 @@ body.lock {
   .coach__title,
   .info__title {
     font-size: 30px;
-  }
-  .welcome__content {
-    flex-basis: 100%;
-  }
-  .welcome__image {
-    width: 80%;
-    height: auto;
   }
   .about__inner {
     padding: 60px 0;
@@ -1297,6 +1328,9 @@ body.lock {
   }
 }
 @media (max-width: 475px) {
+  .welcome__content {
+    flex-basis: calc(100% - 20px);
+  }
   .about__list {
     grid-template-columns: repeat(1, 1fr);
     gap: 30px;
@@ -1305,11 +1339,5 @@ body.lock {
   }
   .about__item {
     width: 270px;
-  }
-}
-@media (max-width: 375px) {
-  .welcome__image {
-    width: 273px;
-    height: 320px;
   }
 }/*# sourceMappingURL=style.css.map */
