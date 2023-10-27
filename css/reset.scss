@@ -7,12 +7,20 @@
 }
 
 a, a:visited, a:hover {
-    /* color: inherit; */
+    // color: inherit;
     text-decoration: none;
 }
 
 a:focus, a:active {
     outline: none;
+}
+
+/* Убираем оформление автоматически добавленных ссылок iPhone'ом */
+a[href^=tel] {
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    color: inherit;
 }
 
 h1, h2, h3, h4, h5, h6 ,p {
