@@ -1,9 +1,9 @@
 # Проект Robo_School
 **Robo_School** - учебный макет для верстки.
 
-Ссылка на ***[макет](https://www.figma.com/file/e6NxEQ1iEjo3RvchKN5KDp/ROBO-SCHOOL?type=design&node-id=0-1&mode=design&t=w5y7OkQM8qBAyK0k-0)***
+Ссылка на **[макет](https://www.figma.com/file/e6NxEQ1iEjo3RvchKN5KDp/ROBO-SCHOOL?type=design&node-id=0-1&mode=design&t=w5y7OkQM8qBAyK0k-0)**
 
-Ссылка на ***[проект](donsperidon.github.io/Robo_School/)***
+Ссылка на **[проект](donsperidon.github.io/Robo_School/)**
 ***
 
 **В данном проекте реализовано следующее:**
