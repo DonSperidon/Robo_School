@@ -41,8 +41,7 @@ img, svg, video {
   display: inline-block;
   vertical-align: top;
   max-width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 /* form */
@@ -590,6 +589,7 @@ body.lock {
 .info__item-prompt {
   width: 24px;
   height: 24px;
+  color: #141024;
   background-color: rgba(20, 16, 36, 0.08);
   border-radius: 50%;
   font-size: 18px;
@@ -739,11 +739,6 @@ body.lock {
   border-radius: 5px;
   outline: none;
   width: 100%;
-  font-size: 18px;
-  line-height: 1.45;
-  color: rgba(40, 41, 68, 0.7);
-}
-.promotion__form-input::-moz-placeholder {
   font-size: 18px;
   line-height: 1.45;
   color: rgba(40, 41, 68, 0.7);
@@ -1340,4 +1335,4 @@ body.lock {
   .about__item {
     width: 270px;
   }
-}/*# sourceMappingURL=style.css.map */
+}

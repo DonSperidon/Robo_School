@@ -1,6 +1,6 @@
 @import "./reset";
-@import "./fonts.scss";
-@import "./_popup";
+@import "./fonts";
+@import "./popup";
 
 body {
 	font-family: 'Jost', sans-serif;
@@ -244,6 +244,7 @@ body.lock {
 	&__item-prompt {
 		width: 24px;
 		height: 24px;
+		color: #141024;
 		background-color: rgba(20, 16, 36, 0.08);
 		border-radius: 50%;
 		font-size: 18px;

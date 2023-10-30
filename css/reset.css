@@ -41,8 +41,7 @@ img, svg, video {
   display: inline-block;
   vertical-align: top;
   max-width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 /* form */
@@ -78,4 +77,4 @@ label {
 
 legend {
   display: block;
-}/*# sourceMappingURL=reset.css.map */
+}
